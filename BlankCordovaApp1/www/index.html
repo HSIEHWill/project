@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">  
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+    <script src="cordova.js"></script>
+    <script src="scripts/jquery-1.11.3.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    <script src="scripts/jquery.ui.map.min.js"></script>
+    <script src="slick/slick.min.js"></script>   
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpOXj-mG3Zq0d69SdWtJ_VjVDlrGAZMvQ&callback=initMap">
+    </script>
+
+    <style type="text/css">
+        .slider {
+            width: 90%;
+            margin: 2px auto;
+        }
+
+        .slick-slide {
+            margin: 0px 5px;
+        }
+
+            .slick-slide img {
+                width: 100%;
+            }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+    </style>
+
+</head>
+<body onload="onLoad()">
+
+
+    <!-- Start of main page -->
+    <div data-role="page" id="main">
+        <div data-role="header" data-position="fixed">
+            <h1>有料餐點</h1>
+            <a class="ui-btn ui-corner-all  ui-icon-mail ui-btn-icon-right" href="#message">訊息</a>
+            <a class="ui-btn ui-corner-all  ui-icon-user ui-btn-icon-left" href="#login" data-transition="slide">會員</a>
+            <!-- <a class="ui-btn ui-corner-all  ui-icon-user ui-btn-icon-left" href="#my" data-transition="slide">會員資料</a>-->
+
+        </div><!-- /header -->
+        <!-- 輪播 -->
+        <div role="main" class="ui-content">
+            <section class="regular slider">
+                <div>
+                    <img src="http://placehold.it/350x300?text=1">
+                </div>
+                <div>
+                    <img src="http://placehold.it/350x300?text=2">
+                </div>
+                <div>
+                    <img src="http://placehold.it/350x300?text=3">
+                </div>
+                <div>
+                    <img src="http://placehold.it/350x300?text=4">
+                </div>
+                <div>
+                    <img src="http://placehold.it/350x300?text=5">
+                </div>
+                <div>
+                    <img src="http://placehold.it/350x300?text=6">
+                </div>
+            </section>
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist" href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div>
+    <!-- End of main page -->
+    <!-- Start of message page -->
+    <div data-role="page" id="message">
+        <div data-role="header" data-position="fixed">
+            <h1>訊息</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            message
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top ui-btn-active ui-state-persist" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div>
+    <!-- End of message page -->
+    <!-- Start of order page -->
+    <div data-role="page" id="order">
+        <div data-role="header" data-position="fixed">
+            <h1>分類</h1>
+            <a href="#shoppingcar" data-icon="shop" data-iconpos="left">購物車</a>
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all" data-transition="none" href="#coffee">咖啡</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#cake">蛋糕</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#bread">麵包</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top ui-btn-active ui-state-persist" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div><!-- End of order page -->
+    <!-- Start of coffee page -->
+    <div data-role="page" id="coffee">
+        <div data-role="header" data-position="fixed">
+
+            <h1>咖啡</h1>
+            <a href="#shoppingcar" data-icon="shop" data-iconpos="left">購物車</a>
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all ui-btn-active ui-state-persist" data-transition="none" href="#coffee">咖啡</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#cake">蛋糕</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#bread">麵包</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="ui-field-contain">
+                <label>美式咖啡</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <div class="ui-field-contain">
+                <label>拿鐵咖啡</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <div class="ui-field-contain">
+                <label>焦糖咖啡</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <a data-role="button" href="#" data-inline="true">加入購物車</a>
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div>
+    <!-- End of coffee page -->
+    <!-- Start of cake page -->
+    <div data-role="page" id="cake">
+        <div data-role="header" data-position="fixed">
+
+            <h1>蛋糕</h1>
+            <a href="#shoppingcar" data-icon="shop" data-iconpos="left">購物車</a>
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all" data-transition="none" href="#coffee">咖啡</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-btn-active ui-state-persist" data-transition="none" href="#cake">蛋糕</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#bread">麵包</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="ui-field-contain">
+                <label>提拉米蘇</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <div class="ui-field-contain">
+                <label>拿破崙</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <div class="ui-field-contain">
+                <label>天使雪莓</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <a data-role="button" href="#" data-inline="true">加入購物車</a>
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div>
+    <!-- Start of bread page -->
+    <div data-role="page" id="bread">
+        <div data-role="header" data-position="fixed">
+
+            <h1>麵包</h1>
+            <a href="#shoppingcar" data-icon="shop" data-iconpos="left">購物車</a>
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#coffee">咖啡</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#cake">蛋糕</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-btn-active ui-state-persist" data-transition="none" href="#bread">麵包</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="ui-field-contain">
+                <label>肉鬆麵包</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <div class="ui-field-contain">
+                <label>波羅麵包</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <div class="ui-field-contain">
+                <label>小可頌</label><input id="" type="number" min="0" max="100" />
+            </div>
+            <a data-role="button" href="#" data-inline="true" data-iconpos="top">加入購物車</a>
+
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div>
+    <!-- End of coffee page -->
+    <!-- Start of shoppingcar page -->
+    <div data-role="page" id="shoppingcar">
+        <div data-role="header" data-position="fixed">
+            <a data-rel="back" data-role="button" data-icon="arrow-l">上一頁</a>
+            <h1>購物車</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div>
+    <!-- End of coffee page -->
+    <!-- Start of offer page -->
+    <div data-role="page" id="offer">
+        <div data-role="header" data-position="fixed">
+            <h1>優惠</h1>
+        </div><!-- /header -->
+        <div role="main" class="ui-content">
+            <div class="ui-field-contain">
+                A
+            </div>
+            <div class="ui-field-contain">
+                B
+            </div>
+            <div class="ui-field-contain">
+                C
+            </div>
+            <div class="ui-field-contain">
+                D
+            </div>
+            <div class="ui-field-contain">
+                E
+            </div>
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top " href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top ui-btn-active ui-state-persist" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- /footer -->
+    </div>
+    <!-- End of offer page -->
+    <!-- Start of stores page -->
+    <div data-role="page" id="stores">
+        <div data-role="header" data-position="fixed">
+            <h1>門市</h1>
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all" data-transition="none" href="#accordingcounty">依縣市</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#aroundstore">最近門市</a>
+                    </li>                 
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of store page -->
+    <!-- Start of accordingcounty page -->
+    <div data-role="page" id="accordingcounty">
+        <div data-role="header" data-position="fixed">
+            <h1>門市</h1>
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all" data-transition="none" href="#accordingcounty">依縣市</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#aroundstore">最近門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">
+                <div>
+                    依縣市查詢：
+                    <select>
+                        <option value="台北市">台北市</option>
+                        <option value="台中市">台中市</option>
+                        <option value="台南市">台南市</option>
+                    </select>
+                </div>
+                <div>
+                    <div id="mapaccording" style="height:300px; width:100%"></div>
+                </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of aroundstore page -->
+    <!-- Start of aroundstore page -->
+    <div data-role="page" id="aroundstore">
+        <div data-role="header" data-position="fixed">
+            <h1>門市</h1>
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all" data-transition="none" href="#accordingcounty">依縣市</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all " data-transition="none" href="#aroundstore">最近門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="content">           
+                <div>
+                    <div id="maparound" style="height:300px; width:100%"></div>
+                </div>
+            </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of aroundstore page -->
+    <!-- Start of login page -->
+    <div data-role="page" id="login">
+        <div data-role="header" data-position="fixed">
+            <a data-rel="back" data-role="button" data-icon="arrow-l">上一頁</a>
+            <h1>會員登入</h1>
+            <a href="#registered" data-role="button" data-icon="plus" data-transition="slide">註冊</a>
+        </div>
+        <div data-role="content">
+            <form method="post" action="#">
+                <div>
+                    <label for="email">信箱：</label><input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="pwd">密碼：</label><input type="password" name="pwd" id="pwd">
+                </div>
+                <div>
+                    <a href="#" data-role="button" data-inline="true">登入</a>
+
+                </div>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top " href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>>
+    <!-- End login page -->
+    <!-- Start of registered page -->
+    <div data-role="page" id="registered">
+        <div data-role="header" data-position="fixed">
+            <a data-rel="back" data-role="button" data-icon="arrow-l">上一頁</a>
+            <h1>會員註冊</h1>
+        </div>
+        <div class="ui-content">
+            <form method="post" action="#">
+                <div class="ui-field-contain">
+                    <label for="name">姓名：</label><input type="text" name="name" id="name">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="email">信箱：</label><input type="email" name="email" id="email">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="pwd">密碼：</label><input type="password" name="pwd" id="pwd">
+                </div>
+                <div class="ui-field-contain">
+                    性別：
+                    <label for="male"><input id="male" type="radio" name="sex" checked />男</label>
+                    <label for="female"><input id="female" type="radio" name="sex" />女</label>
+                </div>
+                <div class="ui-field-contain">
+                    <label for="date">生日：</label><input type="date" id="date">
+                </div>
+                <div>
+                    <a href="#main" data-role="button" data-inline="true">確認</a>
+                </div>
+            </form>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top" href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of registered page -->
+    <!-- Start of my page -->
+    <div data-role="page" id="my">
+        <div data-role="header" data-position="fixed">
+            <a data-rel="back" data-role="button" data-icon="arrow-l">上一頁</a>
+            <h1>會員資料</h1>
+            <a href="#deposit" data-role="button" data-icon="star" data-transition="slide">儲值</a>
+        </div>
+        <div data-role="content">
+            <div>
+                姓名：<input type="text" name="name" id="name" readonly="readonly">
+            </div>
+            <div>
+                信箱：<input type="email" name="email" id="email" readonly="readonly">
+            </div>            
+            <div>
+                性別：<input type="text" id="sex" readonly="readonly">
+            </div>
+            <div>
+                生日：<input type="text" id="date" readonly="readonly">
+            </div>
+            <div>
+                餘額：<input type="text" name="balance " id="balance " readonly="readonly">
+            </div>
+
+            <div>
+                <a href="#change" data-role="button" data-inline="true">修改</a>
+                <a href="#main" data-role="button" data-inline="true">登出</a>i
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top" href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of my page -->
+    <!-- Start of change page -->
+    <div data-role="page" id="change">
+        <div data-role="header" data-position="fixed">
+            <a data-rel="back" data-role="button" data-icon="arrow-l">上一頁</a>
+            <h1>資料修改</h1>
+        </div>
+        <div data-role="content">
+            <div>
+                姓名：<input type="text" name="name" id="name">
+            </div>
+            <div>
+                舊密碼：<input type="password" name="oldpwd" id="oldpwd">
+            </div>
+            <div>
+                新密碼：<input type="password" name="newpwd" id="newpwd">
+            </div>
+            <div>
+                確認密碼：<input type="password" name="checkpwd" id="checkpwd">
+            </div>
+            <div>
+                信箱：<input type="email" name="email" id="email">
+            </div>
+            <div>
+                性別：<input type="text" id="sex">
+            </div>
+            <div>
+                生日：<input type="text" id="date">
+            </div>
+            <div>
+                <a href="#main" data-role="button" data-inline="true">OK</a>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top" href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of my page -->
+    <!-- Start of deposit page -->
+    <div data-role="page" id="deposit">
+        <div data-role="header" data-position="fixed">
+            <a data-rel="back" data-role="button" data-icon="arrow-l">上一頁</a>
+            <h1>儲值</h1>
+        </div>
+        <div data-role="content">
+
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar" data-mini="true">
+                <ul>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-home ui-btn-icon-top" href="#main">首頁</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-bullets ui-btn-icon-top" href="#order">點餐</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-heart ui-btn-icon-top" href="#offer">優惠</a>
+                    </li>
+                    <li>
+                        <a class="ui-btn ui-corner-all  ui-icon-location ui-btn-icon-top" href="#stores">門市</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of deposit page -->
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $(".regular").slick({
+                dots: true,
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1
+            });
+            $(".center").slick({
+                dots: true,
+                infinite: true,
+                centerMode: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
+            });
+            $(".variable").slick({
+                dots: true,
+                infinite: true,
+                variableWidth: true
+            });
+        });
+
+        //google map 24.1614712 , 120.7210114
+        function initMap() {
+            var uluru = { lat: 24.1614712, lng: 120.7210114 };
+            var map = new google.maps.Map(document.getElementById('mapaccording'), {
+                zoom: 8,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+        }
+        //google map for aroundstore
+        function initMap() {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 3,
+                center: { lat: -28.024, lng: 140.887 }
+            });
+            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';           
+            var markers = locations.map(function (location, i) {
+                return new google.maps.Marker({
+                    position: location,
+                    label: labels[i % labels.length]
+                });
+            });
+            var markerCluster = new MarkerClusterer(map, markers,
+                { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+        }
+        var locations = [
+          { lat: -31.563910, lng: 147.154312 },
+          { lat: -33.718234, lng: 150.363181 },
+          { lat: -33.727111, lng: 150.371124 }
+        ]
+
+    </script>
+
+</body>
+</html>

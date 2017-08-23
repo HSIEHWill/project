@@ -1,0 +1,59 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "168",
+               "short_name" : "168",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "軍福七路",
+               "short_name" : "軍福七路",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "北屯區",
+               "short_name" : "北屯區",
+               "types" : [ "administrative_area_level_3", "political" ]
+            },
+            {
+               "long_name" : "台中市",
+               "short_name" : "台中市",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "台灣",
+               "short_name" : "TW",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "406",
+               "short_name" : "406",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "406台灣台中市北屯區軍福七路168號",
+         "geometry" : {
+            "location" : {
+               "lat" : 24.1657889,
+               "lng" : 120.7224815
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 24.1671378802915,
+                  "lng" : 120.7238304802915
+               },
+               "southwest" : {
+                  "lat" : 24.1644399197085,
+                  "lng" : 120.7211325197085
+               }
+            }
+         },
+         "place_id" : "ChIJtQFfuRoYaTQR8QeNJBrkXMU",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}
